@@ -50,6 +50,10 @@
                 <xt:envValueType>FTP Error Directory</xt:envValueType>
                 <xt:value xsi:type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema">/home/weblogic/forexsync/error</xt:value>
             </xt:replace>
+			<xt:replace>
+                <xt:envValueType>Managed Server for Polling</xt:envValueType>
+                <xt:value xsi:type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema">dev_soa1_osb1</xt:value>
+            </xt:replace>
         </cus:actions>
     </cus:customization>
     <cus:customization xsi:type="cus:FindAndReplaceCustomizationType">
@@ -60,6 +64,7 @@
             <xt:envValueTypes>FTP Archive Directory</xt:envValueTypes>
             <xt:envValueTypes>FTP Download Directory</xt:envValueTypes>
             <xt:envValueTypes>FTP Error Directory</xt:envValueTypes>
+			<xt:envValueTypes>Managed Server for Polling</xt:envValueTypes>
             <xt:envValueTypes>Service URI</xt:envValueTypes>
             <xt:envValueTypes>UDDI Auto Publish</xt:envValueTypes>
             <xt:refsToSearch xsi:type="xt:ResourceRefType">
