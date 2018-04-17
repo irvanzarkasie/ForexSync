@@ -10,19 +10,6 @@
         </cus:owners>
         <cus:actions>
             <xt:replace>
-                <xt:envValueType>Service Operational Settings</xt:envValueType>
-                <xt:value>
-                    <ops:operations enabled="true" xmlns:ser="http://xmlns.oracle.com/servicebus/business/config" xmlns:svc="http://www.bea.com/wli/sb/services" xmlns:ops="http://xmlns.oracle.com/servicebus/business/operations" xmlns:jca="http://www.bea.com/wli/sb/transports/jca" xmlns:env="http://www.bea.com/wli/config/env" xmlns:tran="http://www.bea.com/wli/sb/transports">
-                        <ops:sla-alerting enabled="true"/>
-                    </ops:operations>
-                </xt:value>
-            </xt:replace>
-            <xt:replace>
-                <xt:envValueType>Service URI Weight</xt:envValueType>
-                <xt:location>0</xt:location>
-                <xt:value xsi:type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema">0</xt:value>
-            </xt:replace>
-            <xt:replace>
                 <xt:envValueType>Service URI</xt:envValueType>
                 <xt:location>0</xt:location>
                 <xt:value xsi:type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema">jca://eis/DB/ESBDS</xt:value>
@@ -35,26 +22,6 @@
                         <tran:weight>0</tran:weight>
                     </tran:tableElement>
                 </xt:value>
-            </xt:replace>
-            <xt:replace>
-                <xt:envValueType>Service Retry Count</xt:envValueType>
-                <xt:value xsi:type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema">0</xt:value>
-            </xt:replace>
-            <xt:replace>
-                <xt:envValueType>Service Retry Iteration Interval</xt:envValueType>
-                <xt:value xsi:type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema">30</xt:value>
-            </xt:replace>
-            <xt:replace>
-                <xt:envValueType>JCA Always Use WSDL Flag</xt:envValueType>
-                <xt:value xsi:type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema">true</xt:value>
-            </xt:replace>
-            <xt:replace>
-                <xt:envValueType>JCA Connection Mode</xt:envValueType>
-                <xt:value xsi:type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema">managed</xt:value>
-            </xt:replace>
-            <xt:replace>
-                <xt:envValueType>JCA Overwrite Connection Authentication Flag</xt:envValueType>
-                <xt:value xsi:type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema">false</xt:value>
             </xt:replace>
         </cus:actions>
     </cus:customization>
@@ -83,20 +50,6 @@
                 <xt:envValueType>FTP Error Directory</xt:envValueType>
                 <xt:value xsi:type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema">/home/weblogic/forexsync/error</xt:value>
             </xt:replace>
-            <xt:replace>
-                <xt:envValueType>Managed Server for Polling</xt:envValueType>
-                <xt:value xsi:type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema">dev_soa1_osb1</xt:value>
-            </xt:replace>
-            <xt:replace>
-                <xt:envValueType>Service Operational Settings</xt:envValueType>
-                <xt:value>
-                    <oper:operations enabled="true" xmlns:ser="http://www.bea.com/wli/sb/services" xmlns:oper="http://xmlns.oracle.com/servicebus/proxy/operations" xmlns:env="http://www.bea.com/wli/config/env" xmlns:tran="http://www.bea.com/wli/sb/transports"/>
-                </xt:value>
-            </xt:replace>
-            <xt:replace>
-                <xt:envValueType>UDDI Auto Publish</xt:envValueType>
-                <xt:value xsi:type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema">false</xt:value>
-            </xt:replace>
         </cus:actions>
     </cus:customization>
     <cus:customization xsi:type="cus:FindAndReplaceCustomizationType">
@@ -107,14 +60,7 @@
             <xt:envValueTypes>FTP Archive Directory</xt:envValueTypes>
             <xt:envValueTypes>FTP Download Directory</xt:envValueTypes>
             <xt:envValueTypes>FTP Error Directory</xt:envValueTypes>
-            <xt:envValueTypes>JCA Always Use WSDL Flag</xt:envValueTypes>
-            <xt:envValueTypes>JCA Connection Mode</xt:envValueTypes>
-            <xt:envValueTypes>JCA Overwrite Connection Authentication Flag</xt:envValueTypes>
-            <xt:envValueTypes>Managed Server for Polling</xt:envValueTypes>
-            <xt:envValueTypes>Service Retry Count</xt:envValueTypes>
-            <xt:envValueTypes>Service Retry Iteration Interval</xt:envValueTypes>
             <xt:envValueTypes>Service URI</xt:envValueTypes>
-            <xt:envValueTypes>Service URI Weight</xt:envValueTypes>
             <xt:envValueTypes>UDDI Auto Publish</xt:envValueTypes>
             <xt:refsToSearch xsi:type="xt:ResourceRefType">
                 <xt:type>BusinessService</xt:type>
