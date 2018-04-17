@@ -85,7 +85,7 @@
             </xt:replace>
             <xt:replace>
                 <xt:envValueType>Managed Server for Polling</xt:envValueType>
-                <xt:value xsi:type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>dev_soa1_osb1</xt:value>
+                <xt:value xsi:type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema">dev_soa1_osb1</xt:value>
             </xt:replace>
             <xt:replace>
                 <xt:envValueType>Service Operational Settings</xt:envValueType>
