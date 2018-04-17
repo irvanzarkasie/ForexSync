@@ -1,0 +1,37 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:nxsd="http://xmlns.oracle.com/pcbpel/nxsd" xmlns:tns="http://TargetNamespace.com/ForexSync" targetNamespace="http://TargetNamespace.com/ForexSync" elementFormDefault="qualified" attributeFormDefault="unqualified" nxsd:version="NXSD" nxsd:stream="chars" nxsd:encoding="US-ASCII" nxsd:hasHeader="true" nxsd:headerLines="1" nxsd:headerLinesTerminatedBy="${eol}">
+
+
+  <xsd:element name="ForexRateList">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="ForexRate" minOccurs="1" maxOccurs="unbounded">
+          <xsd:complexType>
+            <xsd:sequence>
+              <xsd:element name="Action" type="xsd:string" nxsd:style="terminated" nxsd:terminatedBy="," nxsd:quotedBy="&quot;"/>
+              <xsd:element name="QuoteSet" type="xsd:string" nxsd:style="terminated" nxsd:terminatedBy="," nxsd:quotedBy="&quot;"/>
+              <xsd:element name="Date" type="xsd:string" nxsd:style="terminated" nxsd:terminatedBy="," nxsd:quotedBy="&quot;"/>
+              <xsd:element name="QuoteName" type="xsd:string" nxsd:style="terminated" nxsd:terminatedBy="," nxsd:quotedBy="&quot;"/>
+              <xsd:element name="QuoteType" type="xsd:string" nxsd:style="terminated" nxsd:terminatedBy="," nxsd:quotedBy="&quot;"/>
+              <xsd:element name="Bid" type="xsd:string" nxsd:style="terminated" nxsd:terminatedBy="," nxsd:quotedBy="&quot;"/>
+              <xsd:element name="Ask" type="xsd:string" nxsd:style="terminated" nxsd:terminatedBy="," nxsd:quotedBy="&quot;"/>
+              <xsd:element name="Open" type="xsd:string" nxsd:style="terminated" nxsd:terminatedBy="," nxsd:quotedBy="&quot;"/>
+              <xsd:element name="Close" type="xsd:string" nxsd:style="terminated" nxsd:terminatedBy="," nxsd:quotedBy="&quot;"/>
+              <xsd:element name="High" type="xsd:string" nxsd:style="terminated" nxsd:terminatedBy="," nxsd:quotedBy="&quot;"/>
+              <xsd:element name="Low" type="xsd:string" nxsd:style="terminated" nxsd:terminatedBy="," nxsd:quotedBy="&quot;"/>
+              <xsd:element name="Last" type="xsd:string" nxsd:style="terminated" nxsd:terminatedBy="," nxsd:quotedBy="&quot;"/>
+              <xsd:element name="EstimatedB" type="xsd:string" nxsd:style="terminated" nxsd:terminatedBy="," nxsd:quotedBy="&quot;"/>
+              <xsd:element name="SourceName" type="xsd:string" nxsd:style="terminated" nxsd:terminatedBy="," nxsd:quotedBy="&quot;"/>
+              <xsd:element name="PriceSource" type="xsd:string" nxsd:style="terminated" nxsd:terminatedBy="${eol}" nxsd:quotedBy="&quot;"/>
+            </xsd:sequence>
+          </xsd:complexType>
+        </xsd:element>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+
+<xsd:annotation>
+      <xsd:appinfo>NXSDSAMPLE=C:\Users\irvan\Documents\EXPECC\BANK INDONESIA\BI_Development\Quote_NewSample_CSV.csv</xsd:appinfo>
+      <xsd:appinfo>USEHEADER=true</xsd:appinfo>
+   </xsd:annotation>
+</xsd:schema>

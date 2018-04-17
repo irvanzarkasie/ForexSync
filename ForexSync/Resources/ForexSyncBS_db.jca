@@ -1,0 +1,66 @@
+<adapter-config name="ForexSyncBS" adapter="db" wsdlLocation="ForexSyncBS.wsdl" xmlns="http://platform.integration.oracle/blocks/adapter/fw/metadata">
+  
+  <connection-factory UIConnectionName="DEV_DB_LOCAL" location="eis/DB/DevLocal"/>
+  <endpoint-interaction portType="ForexSyncBS_ptt" operation="merge">
+    <interaction-spec className="oracle.tip.adapter.db.DBWriteInteractionSpec">
+      <property name="DescriptorName" value="ForexSyncBS.Forexrate"/>
+      <property name="DmlType" value="merge"/>
+      <property name="MappingsMetaDataURL" value="ForexSyncBS-or-mappings.xml"/>
+      <property name="GetActiveUnitOfWork" value="false"/>
+      <property name="OptimizeMerge" value="true"/>
+      <property name="DetectOmissions" value="true"/>
+    </interaction-spec>
+  </endpoint-interaction>
+
+  <endpoint-interaction portType="ForexSyncBS_ptt" operation="insert">
+    <interaction-spec className="oracle.tip.adapter.db.DBWriteInteractionSpec">
+      <property name="DescriptorName" value="ForexSyncBS.Forexrate"/>
+      <property name="DmlType" value="insert"/>
+      <property name="MappingsMetaDataURL" value="ForexSyncBS-or-mappings.xml"/>
+      <property name="OptimizeMerge" value="true"/>
+      <property name="DetectOmissions" value="true"/>
+      <property name="GetActiveUnitOfWork" value="false"/>
+    </interaction-spec>
+  </endpoint-interaction>
+
+  <endpoint-interaction portType="ForexSyncBS_ptt" operation="update">
+    <interaction-spec className="oracle.tip.adapter.db.DBWriteInteractionSpec">
+      <property name="DescriptorName" value="ForexSyncBS.Forexrate"/>
+      <property name="DmlType" value="update"/>
+      <property name="MappingsMetaDataURL" value="ForexSyncBS-or-mappings.xml"/>
+      <property name="OptimizeMerge" value="true"/>
+      <property name="DetectOmissions" value="true"/>
+      <property name="GetActiveUnitOfWork" value="false"/>
+    </interaction-spec>
+  </endpoint-interaction>
+
+  <endpoint-interaction portType="ForexSyncBS_ptt" operation="delete">
+    <interaction-spec className="oracle.tip.adapter.db.DBWriteInteractionSpec">
+      <property name="DescriptorName" value="ForexSyncBS.Forexrate"/>
+      <property name="DmlType" value="delete"/>
+      <property name="MappingsMetaDataURL" value="ForexSyncBS-or-mappings.xml"/>
+      <property name="OptimizeMerge" value="true"/>
+      <property name="GetActiveUnitOfWork" value="false"/>
+    </interaction-spec>
+  </endpoint-interaction>
+
+  <endpoint-interaction portType="ForexSyncBS_ptt" operation="ForexSyncBSSelect">
+    <interaction-spec className="oracle.tip.adapter.db.DBReadInteractionSpec">
+      <property name="DescriptorName" value="ForexSyncBS.Forexrate"/>
+      <property name="QueryName" value="ForexSyncBSSelect"/>
+      <property name="MappingsMetaDataURL" value="ForexSyncBS-or-mappings.xml"/>
+      <property name="ReturnSingleResultSet" value="false"/>
+      <property name="GetActiveUnitOfWork" value="false"/>
+    </interaction-spec>
+  </endpoint-interaction>
+
+  <endpoint-interaction portType="ForexSyncBS_ptt" operation="queryByExample">
+    <interaction-spec className="oracle.tip.adapter.db.DBReadInteractionSpec">
+      <property name="DescriptorName" value="ForexSyncBS.Forexrate"/>
+      <property name="IsQueryByExample" value="true"/>
+      <property name="MappingsMetaDataURL" value="ForexSyncBS-or-mappings.xml"/>
+      <property name="GetActiveUnitOfWork" value="false"/>
+    </interaction-spec>
+  </endpoint-interaction>
+
+</adapter-config>

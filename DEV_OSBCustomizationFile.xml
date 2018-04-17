@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cus:Customizations xmlns:cus="http://www.bea.com/wli/config/customizations" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xt="http://www.bea.com/wli/config/xmltypes">
+    <cus:customization xsi:type="cus:EnvValueActionsCustomizationType">
+        <cus:description/>
+        <cus:owners>
+            <xt:owner>
+                <xt:type>BusinessService</xt:type>
+                <xt:path>ForexSync/Services/ForexSyncBS</xt:path>
+            </xt:owner>
+        </cus:owners>
+        <cus:actions>
+            <xt:replace>
+                <xt:envValueType>Service Operational Settings</xt:envValueType>
+                <xt:value>
+                    <ops:operations enabled="true" xmlns:ser="http://xmlns.oracle.com/servicebus/business/config" xmlns:svc="http://www.bea.com/wli/sb/services" xmlns:ops="http://xmlns.oracle.com/servicebus/business/operations" xmlns:jca="http://www.bea.com/wli/sb/transports/jca" xmlns:env="http://www.bea.com/wli/config/env" xmlns:tran="http://www.bea.com/wli/sb/transports">
+                        <ops:sla-alerting enabled="true"/>
+                    </ops:operations>
+                </xt:value>
+            </xt:replace>
+            <xt:replace>
+                <xt:envValueType>Service URI Weight</xt:envValueType>
+                <xt:location>0</xt:location>
+                <xt:value xsi:type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema">0</xt:value>
+            </xt:replace>
+            <xt:replace>
+                <xt:envValueType>Service URI</xt:envValueType>
+                <xt:location>0</xt:location>
+                <xt:value xsi:type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema">jca://eis/DB/DevLocal</xt:value>
+            </xt:replace>
+            <xt:replace>
+                <xt:envValueType>Service URI Table</xt:envValueType>
+                <xt:value xsi:type="tran:URITableType" xmlns:tran="http://www.bea.com/wli/sb/transports">
+                    <tran:tableElement>
+                        <tran:URI>jca://eis/DB/DevLocal</tran:URI>
+                        <tran:weight>0</tran:weight>
+                    </tran:tableElement>
+                </xt:value>
+            </xt:replace>
+            <xt:replace>
+                <xt:envValueType>Service Retry Count</xt:envValueType>
+                <xt:value xsi:type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema">0</xt:value>
+            </xt:replace>
+            <xt:replace>
+                <xt:envValueType>Service Retry Iteration Interval</xt:envValueType>
+                <xt:value xsi:type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema">30</xt:value>
+            </xt:replace>
+            <xt:replace>
+                <xt:envValueType>JCA Always Use WSDL Flag</xt:envValueType>
+                <xt:value xsi:type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema">true</xt:value>
+            </xt:replace>
+            <xt:replace>
+                <xt:envValueType>JCA Connection Mode</xt:envValueType>
+                <xt:value xsi:type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema">managed</xt:value>
+            </xt:replace>
+            <xt:replace>
+                <xt:envValueType>JCA Overwrite Connection Authentication Flag</xt:envValueType>
+                <xt:value xsi:type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema">false</xt:value>
+            </xt:replace>
+        </cus:actions>
+    </cus:customization>
+    <cus:customization xsi:type="cus:EnvValueActionsCustomizationType">
+        <cus:description/>
+        <cus:owners>
+            <xt:owner>
+                <xt:type>ProxyService</xt:type>
+                <xt:path>ForexSync/Services/ForexSyncPS</xt:path>
+            </xt:owner>
+        </cus:owners>
+        <cus:actions>
+            <xt:replace>
+                <xt:envValueType>Service URI</xt:envValueType>
+                <xt:value xsi:type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema">ftp://localhost:21/dev_dir</xt:value>
+            </xt:replace>
+            <xt:replace>
+                <xt:envValueType>FTP Archive Directory</xt:envValueType>
+                <xt:value xsi:type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema">C:\Oracle\Middleware\Oracle_Home12c_fmw_12213\user_projects\domains\bi_dev2\ftp\archive</xt:value>
+            </xt:replace>
+            <xt:replace>
+                <xt:envValueType>FTP Download Directory</xt:envValueType>
+                <xt:value xsi:type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema">C:\Oracle\Middleware\Oracle_Home12c_fmw_12213\user_projects\domains\bi_dev2\ftp\download</xt:value>
+            </xt:replace>
+            <xt:replace>
+                <xt:envValueType>FTP Error Directory</xt:envValueType>
+                <xt:value xsi:type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema">C:\Oracle\Middleware\Oracle_Home12c_fmw_12213\user_projects\domains\bi_dev2\ftp\error</xt:value>
+            </xt:replace>
+            <xt:replace>
+                <xt:envValueType>Managed Server for Polling</xt:envValueType>
+                <xt:value xsi:type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+            </xt:replace>
+            <xt:replace>
+                <xt:envValueType>Service Operational Settings</xt:envValueType>
+                <xt:value>
+                    <oper:operations enabled="true" xmlns:ser="http://www.bea.com/wli/sb/services" xmlns:oper="http://xmlns.oracle.com/servicebus/proxy/operations" xmlns:env="http://www.bea.com/wli/config/env" xmlns:tran="http://www.bea.com/wli/sb/transports"/>
+                </xt:value>
+            </xt:replace>
+            <xt:replace>
+                <xt:envValueType>UDDI Auto Publish</xt:envValueType>
+                <xt:value xsi:type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema">false</xt:value>
+            </xt:replace>
+        </cus:actions>
+    </cus:customization>
+    <cus:customization xsi:type="cus:FindAndReplaceCustomizationType">
+        <cus:description/>
+        <cus:query>
+            <xt:resourceTypes>BusinessService</xt:resourceTypes>
+            <xt:resourceTypes>ProxyService</xt:resourceTypes>
+            <xt:envValueTypes>FTP Archive Directory</xt:envValueTypes>
+            <xt:envValueTypes>FTP Download Directory</xt:envValueTypes>
+            <xt:envValueTypes>FTP Error Directory</xt:envValueTypes>
+            <xt:envValueTypes>JCA Always Use WSDL Flag</xt:envValueTypes>
+            <xt:envValueTypes>JCA Connection Mode</xt:envValueTypes>
+            <xt:envValueTypes>JCA Overwrite Connection Authentication Flag</xt:envValueTypes>
+            <xt:envValueTypes>Managed Server for Polling</xt:envValueTypes>
+            <xt:envValueTypes>Service Retry Count</xt:envValueTypes>
+            <xt:envValueTypes>Service Retry Iteration Interval</xt:envValueTypes>
+            <xt:envValueTypes>Service URI</xt:envValueTypes>
+            <xt:envValueTypes>Service URI Weight</xt:envValueTypes>
+            <xt:envValueTypes>UDDI Auto Publish</xt:envValueTypes>
+            <xt:refsToSearch xsi:type="xt:ResourceRefType">
+                <xt:type>BusinessService</xt:type>
+                <xt:path>ForexSync/Services/ForexSyncBS</xt:path>
+            </xt:refsToSearch>
+            <xt:refsToSearch xsi:type="xt:ResourceRefType">
+                <xt:type>ProxyService</xt:type>
+                <xt:path>ForexSync/Services/ForexSyncPS</xt:path>
+            </xt:refsToSearch>
+            <xt:includeOnlyModifiedResources>false</xt:includeOnlyModifiedResources>
+            <xt:searchString>Search String</xt:searchString>
+            <xt:isCompleteMatch>false</xt:isCompleteMatch>
+        </cus:query>
+        <cus:replacement>Replacement String</cus:replacement>
+    </cus:customization>
+    <cus:customization xsi:type="cus:ReferenceCustomizationType">
+        <cus:description/>
+        <cus:refsToBeConsidered xsi:type="xt:ResourceRefType">
+            <xt:type>WSDL</xt:type>
+            <xt:path>ForexSync/Resources/ForexSyncBS</xt:path>
+        </cus:refsToBeConsidered>
+        <cus:refsToBeConsidered xsi:type="xt:ResourceRefType">
+            <xt:type>WSDL</xt:type>
+            <xt:path>ForexSync/Resources/ForexSyncBS-concrete</xt:path>
+        </cus:refsToBeConsidered>
+        <cus:refsToBeConsidered xsi:type="xt:ResourceRefType">
+            <xt:type>JCA</xt:type>
+            <xt:path>ForexSync/Resources/ForexSyncBS_db</xt:path>
+        </cus:refsToBeConsidered>
+        <cus:refsToBeConsidered xsi:type="xt:ResourceRefType">
+            <xt:type>Xquery</xt:type>
+            <xt:path>ForexSync/Resources/ForexSyncRqToForexDB</xt:path>
+        </cus:refsToBeConsidered>
+        <cus:refsToBeConsidered xsi:type="xt:ResourceRefType">
+            <xt:type>BusinessService</xt:type>
+            <xt:path>ForexSync/Services/ForexSyncBS</xt:path>
+        </cus:refsToBeConsidered>
+        <cus:refsToBeConsidered xsi:type="xt:ResourceRefType">
+            <xt:type>Pipeline</xt:type>
+            <xt:path>ForexSync/Services/ForexSyncPL</xt:path>
+        </cus:refsToBeConsidered>
+        <cus:refsToBeConsidered xsi:type="xt:ResourceRefType">
+            <xt:type>ProxyService</xt:type>
+            <xt:path>ForexSync/Services/ForexSyncPS</xt:path>
+        </cus:refsToBeConsidered>
+        <cus:externalReferenceMap>
+            <xt:oldRef>
+                <xt:type>WSDL</xt:type>
+                <xt:path>ForexSync/Resources/ForexSyncBS</xt:path>
+            </xt:oldRef>
+            <xt:newRef>
+                <xt:type>WSDL</xt:type>
+                <xt:path>ForexSync/Resources/ForexSyncBS</xt:path>
+            </xt:newRef>
+        </cus:externalReferenceMap>
+        <cus:externalReferenceMap>
+            <xt:oldRef>
+                <xt:type>WSDL</xt:type>
+                <xt:path>ForexSync/Resources/ForexSyncBS-concrete</xt:path>
+            </xt:oldRef>
+            <xt:newRef>
+                <xt:type>WSDL</xt:type>
+                <xt:path>ForexSync/Resources/ForexSyncBS-concrete</xt:path>
+            </xt:newRef>
+        </cus:externalReferenceMap>
+        <cus:externalReferenceMap>
+            <xt:oldRef>
+                <xt:type>XML</xt:type>
+                <xt:path>ForexSync/Resources/ForexSyncBS-or-mappings</xt:path>
+            </xt:oldRef>
+            <xt:newRef>
+                <xt:type>XML</xt:type>
+                <xt:path>ForexSync/Resources/ForexSyncBS-or-mappings</xt:path>
+            </xt:newRef>
+        </cus:externalReferenceMap>
+        <cus:externalReferenceMap>
+            <xt:oldRef>
+                <xt:type>JCA</xt:type>
+                <xt:path>ForexSync/Resources/ForexSyncBS_db</xt:path>
+            </xt:oldRef>
+            <xt:newRef>
+                <xt:type>JCA</xt:type>
+                <xt:path>ForexSync/Resources/ForexSyncBS_db</xt:path>
+            </xt:newRef>
+        </cus:externalReferenceMap>
+        <cus:externalReferenceMap>
+            <xt:oldRef>
+                <xt:type>XMLSchema</xt:type>
+                <xt:path>ForexSync/Resources/ForexSyncBS_table</xt:path>
+            </xt:oldRef>
+            <xt:newRef>
+                <xt:type>XMLSchema</xt:type>
+                <xt:path>ForexSync/Resources/ForexSyncBS_table</xt:path>
+            </xt:newRef>
+        </cus:externalReferenceMap>
+        <cus:externalReferenceMap>
+            <xt:oldRef>
+                <xt:type>XMLSchema</xt:type>
+                <xt:path>ForexSync/Resources/ForexSyncCSV</xt:path>
+            </xt:oldRef>
+            <xt:newRef>
+                <xt:type>XMLSchema</xt:type>
+                <xt:path>ForexSync/Resources/ForexSyncCSV</xt:path>
+            </xt:newRef>
+        </cus:externalReferenceMap>
+        <cus:externalReferenceMap>
+            <xt:oldRef>
+                <xt:type>Xquery</xt:type>
+                <xt:path>ForexSync/Resources/ForexSyncRqToForexDB</xt:path>
+            </xt:oldRef>
+            <xt:newRef>
+                <xt:type>Xquery</xt:type>
+                <xt:path>ForexSync/Resources/ForexSyncRqToForexDB</xt:path>
+            </xt:newRef>
+        </cus:externalReferenceMap>
+        <cus:externalReferenceMap>
+            <xt:oldRef>
+                <xt:type>ServiceAccount</xt:type>
+                <xt:path>ForexSync/Resources/LOCAL_FTP_SA</xt:path>
+            </xt:oldRef>
+            <xt:newRef>
+                <xt:type>ServiceAccount</xt:type>
+                <xt:path>ForexSync/Resources/LOCAL_FTP_SA</xt:path>
+            </xt:newRef>
+        </cus:externalReferenceMap>
+        <cus:externalReferenceMap>
+            <xt:oldRef>
+                <xt:type>BusinessService</xt:type>
+                <xt:path>ForexSync/Services/ForexSyncBS</xt:path>
+            </xt:oldRef>
+            <xt:newRef>
+                <xt:type>BusinessService</xt:type>
+                <xt:path>ForexSync/Services/ForexSyncBS</xt:path>
+            </xt:newRef>
+        </cus:externalReferenceMap>
+        <cus:externalReferenceMap>
+            <xt:oldRef>
+                <xt:type>Pipeline</xt:type>
+                <xt:path>ForexSync/Services/ForexSyncPL</xt:path>
+            </xt:oldRef>
+            <xt:newRef>
+                <xt:type>Pipeline</xt:type>
+                <xt:path>ForexSync/Services/ForexSyncPL</xt:path>
+            </xt:newRef>
+        </cus:externalReferenceMap>
+    </cus:customization>
+</cus:Customizations>
