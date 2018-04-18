@@ -19,6 +19,12 @@
                             <con2:xqueryText>fn-bea:uuid()</con2:xqueryText>
                         </con3:expr>
                     </con3:assign>
+                    <con3:assign varName="FileName">
+                        <con2:id>_ActionId-N3f57c7ff.5427997e.0.162d7dc7a2e.N7ffe</con2:id>
+                        <con3:expr>
+                            <con2:xqueryText>fn:tokenize($inbound/ctx:transport/ctx:request/tp:headers/ftp:fileName/text(), "/")[last()]</con2:xqueryText>
+                        </con3:expr>
+                    </con3:assign>
                     <con3:assign varName="logMessage">
                         <con2:id>_ActionId-N3f57c7ff.6b4f737f.0.162d259f47d.N7ffe</con2:id>
                         <con3:expr>
@@ -52,17 +58,88 @@
             <con:stage id="_StageId-N3f57c7ff.22a62d0a.0.162d2d1b29d.N7fc8" name="Request Mapping">
                 <con:context/>
                 <con:actions>
-                    <con3:assign varName="InsertRq">
-                        <con2:id>_ActionId-N3f57c7ff.N1ff9fa98.0.162d33f920e.N7ffe</con2:id>
-                        <con3:expr>
-                            <con2:xqueryTransform>
-                                <con2:resource ref="ForexSync/Resources/ForexSyncRqToForexDB"/>
-                                <con2:param name="source">
-                                    <con2:path>$XmlRq</con2:path>
-                                </con2:param>
-                            </con2:xqueryTransform>
-                        </con3:expr>
-                    </con3:assign>
+                    <con3:ifThenElse>
+                        <con2:id>_ActionId-N3f57c7ff.5427997e.0.162d7dc7a2e.N7ff7</con2:id>
+                        <con3:case id="_BranchId-N3f57c7ff.5427997e.0.162d7dc7a2e.N7ff6">
+                            <con3:condition>
+                                <con2:xqueryText>fn:contains($FileName, "TRX")</con2:xqueryText>
+                            </con3:condition>
+                            <con3:actions>
+                                <con3:assign varName="InsertRq">
+                                    <con2:id>_ActionId-N3f57c7ff.N1ff9fa98.0.162d33f920e.N7ffe</con2:id>
+                                    <con3:expr>
+                                        <con2:xqueryTransform>
+                                            <con2:resource ref="ForexSync/Resources/ForexSyncRqToForexTransactionRateDB"/>
+                                            <con2:param name="source">
+                                                <con2:path>$XmlRq</con2:path>
+                                            </con2:param>
+                                        </con2:xqueryTransform>
+                                    </con3:expr>
+                                </con3:assign>
+                            </con3:actions>
+                        </con3:case>
+                        <con3:case id="_BranchId-N3f57c7ff.5427997e.0.162d7dc7a2e.N7ff4">
+                            <con3:condition>
+                                <con2:xqueryText>fn:contains($FileName, "UKA")</con2:xqueryText>
+                            </con3:condition>
+                            <con3:actions>
+                                <con3:assign varName="InsertRq">
+                                    <con2:id>_ActionId-N3f57c7ff.5427997e.0.162d7dc7a2e.N7fbb</con2:id>
+                                    <con3:expr>
+                                        <con2:xqueryTransform>
+                                            <con2:resource ref="ForexSync/Resources/ForexSyncRqToForexBanknotesRateDB"/>
+                                            <con2:param name="source">
+                                                <con2:path>$XmlRq</con2:path>
+                                            </con2:param>
+                                        </con2:xqueryTransform>
+                                    </con3:expr>
+                                </con3:assign>
+                            </con3:actions>
+                        </con3:case>
+                        <con3:case id="_BranchId-N3f57c7ff.5427997e.0.162d7dc7a2e.N7ff2">
+                            <con3:condition>
+                                <con2:xqueryText>fn:contains($FileName, "SPC")</con2:xqueryText>
+                            </con3:condition>
+                            <con3:actions>
+                                <con3:assign varName="InsertRq">
+                                    <con2:id>_ActionId-N3f57c7ff.5427997e.0.162d7dc7a2e.N7f88</con2:id>
+                                    <con3:expr>
+                                        <con2:xqueryTransform>
+                                            <con2:resource ref="ForexSync/Resources/ForexSyncRqToForexSpecialRateDB"/>
+                                            <con2:param name="source">
+                                                <con2:path>$XmlRq</con2:path>
+                                            </con2:param>
+                                        </con2:xqueryTransform>
+                                    </con3:expr>
+                                </con3:assign>
+                            </con3:actions>
+                        </con3:case>
+                        <con3:case id="_BranchId-N3f57c7ff.5427997e.0.162d7dc7a2e.N7ff0">
+                            <con3:condition>
+                                <con2:xqueryText>fn:contains($FileName, "BAL")</con2:xqueryText>
+                            </con3:condition>
+                            <con3:actions>
+                                <con3:assign varName="InsertRq">
+                                    <con2:id>_ActionId-N3f57c7ff.5427997e.0.162d7dc7a2e.N7f55</con2:id>
+                                    <con3:expr>
+                                        <con2:xqueryTransform>
+                                            <con2:resource ref="ForexSync/Resources/ForexSyncRqToForexBalanceRateDB"/>
+                                            <con2:param name="source">
+                                                <con2:path>$XmlRq</con2:path>
+                                            </con2:param>
+                                        </con2:xqueryTransform>
+                                    </con3:expr>
+                                </con3:assign>
+                            </con3:actions>
+                        </con3:case>
+                        <con3:default>
+                            <con3:Error>
+                                <con2:id>_ActionId-N3f57c7ff.5427997e.0.162d7dc7a2e.N7f52</con2:id>
+                                <con3:errCode>ESB-000000</con3:errCode>
+                                <con3:message>Invalid file</con3:message>
+                            </con3:Error>
+                        </con3:default>
+                    </con3:ifThenElse>
                     <con3:replace varName="body" contents-only="true">
                         <con2:id>_ActionId-N3f57c7ff.N1ff9fa98.0.162d33f920e.N7ff8</con2:id>
                         <con3:location>
@@ -98,8 +175,35 @@
                     </con4:route>
                 </con:actions>
             </con:stage>
+            <con:stage id="_StageId-N3f57c7ff.5427997e.0.162d7dc7a2e.N7f51" name="Notify ERP">
+                <con:context/>
+                <con:actions>
+                    <con3:wsCallout>
+                        <con2:id>_ActionId-N3f57c7ff.5427997e.0.162d7dc7a2e.N7f4e</con2:id>
+                        <con3:service ref="ForexSync/Services/NotifyERPBS" xsi:type="ref:BusinessServiceRef" xmlns:ref="http://www.bea.com/wli/sb/reference"/>
+                        <con3:request>
+                            <con3:payload wrapped="false">body</con3:payload>
+                        </con3:request>
+                        <con3:response>
+                            <con3:payload wrapped="false">body</con3:payload>
+                        </con3:response>
+                        <con3:requestTransform>
+                            <con3:javaScript>
+                                <con2:id>_ActionId-N3f57c7ff.5427997e.0.162d7dc7a2e.N7f48</con2:id>
+                                <con3:script>process.body = {
+  "RqUID": String(UUIDUserFunction.uuid()),
+  "RqTimestamp": new String(DateUtil.currentLocalTime()),
+  "ForexDate": ""
+}</con3:script>
+                                <con3:timeout>5</con3:timeout>
+                            </con3:javaScript>
+                        </con3:requestTransform>
+                        <con3:responseTransform/>
+                    </con3:wsCallout>
+                </con:actions>
+            </con:stage>
         </con:pipeline>
-        <con:pipeline type="response" name="response-N3f57c7ff.N5e25d590.0.162ce030e10.N7ffb"></con:pipeline>
+        <con:pipeline type="response" name="response-N3f57c7ff.N5e25d590.0.162ce030e10.N7ffb"/>
         <con:flow>
             <con:pipeline-node name="Pipeline Pair Node1">
                 <con:request>request-N3f57c7ff.N5e25d590.0.162ce030e10.N7ffc</con:request>

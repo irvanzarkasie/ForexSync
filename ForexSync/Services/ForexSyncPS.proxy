@@ -17,6 +17,7 @@
             <env:value>ftp://localhost:21/dev_dir</env:value>
         </tran:URI>
         <tran:inbound-properties/>
+        <tran:all-headers>true</tran:all-headers>
         <tran:provider-specific xsi:type="ftp:FtpEndPointConfiguration" xmlns:ftp="http://www.bea.com/wli/sb/transports/ftp">
             <ftp:inbound-properties>
                 <ftp:recursive-scan>false</ftp:recursive-scan>
