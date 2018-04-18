@@ -177,6 +177,7 @@
             </con:stage>
             <con:stage id="_StageId-N3f57c7ff.5427997e.0.162d7dc7a2e.N7f51" name="Notify ERP">
                 <con:context/>
+                <con:disabled>true</con:disabled>
                 <con:actions>
                     <con3:wsCallout>
                         <con2:id>_ActionId-N3f57c7ff.5427997e.0.162d7dc7a2e.N7f4e</con2:id>
