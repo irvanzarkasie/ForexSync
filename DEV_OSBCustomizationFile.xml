@@ -188,7 +188,7 @@
             </xt:oldRef>
             <xt:newRef>
                 <xt:type>ServiceAccount</xt:type>
-                <xt:path>ForexSync/Resources/LOCAL_FTP_SA</xt:path>
+                <xt:path>ForexSync/Resources/DEV_FTP_SA</xt:path>
             </xt:newRef>
         </cus:externalReferenceMap>
         <cus:externalReferenceMap>
