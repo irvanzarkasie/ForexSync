@@ -41,9 +41,9 @@
                 <ftp:retry-count>3</ftp:retry-count>
                 <ftp:file-mask>*.csv</ftp:file-mask>
                 <ftp:poll-info>
-                    <ftp:interval-milliseconds>5000</ftp:interval-milliseconds>
+                    <ftp:interval-milliseconds>120000</ftp:interval-milliseconds>
                 </ftp:poll-info>
-                <ftp:read-limit>10</ftp:read-limit>
+                <ftp:read-limit>0</ftp:read-limit>
                 <ftp:sortByArrival>false</ftp:sortByArrival>
                 <ftp:transfer-mode>binary</ftp:transfer-mode>
                 <ftp:regex-file-mask>false</ftp:regex-file-mask>
