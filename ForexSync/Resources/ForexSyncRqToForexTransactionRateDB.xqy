@@ -27,9 +27,24 @@ declare function local:func($source as element() (:: schema-element(ns1:ForexRat
               </ns2:dailyDate>
               <ns2:pointValue>10</ns2:pointValue>
               <ns2:baseCurrencyCode>IDR</ns2:baseCurrencyCode>
-              <ns2:txBuyRate>{fn:number($ForexRate/ns1:High)}</ns2:txBuyRate>
-              <ns2:txMidRate>{(fn:number($ForexRate/ns1:High) + fn:number($ForexRate/ns1:Low)) div 2}</ns2:txMidRate>
-              <ns2:txSellRate>{fn:number($ForexRate/ns1:Low)}</ns2:txSellRate>
+              <ns2:txBuyRate>
+              {
+                if (data($ForexRate/ns1:High) ne "") then fn:number($ForexRate/ns1:High)
+                else ""
+              }
+              </ns2:txBuyRate>
+              <ns2:txMidRate>
+              {
+                if (data($ForexRate/ns1:High) ne "" and data($ForexRate/ns1:Low) ne "") then (fn:number($ForexRate/ns1:High) + fn:number($ForexRate/ns1:Low)) div 2
+                else ""
+              }
+              </ns2:txMidRate>
+              <ns2:txSellRate>
+              {
+                if (data($ForexRate/ns1:Low) ne "") then fn:number($ForexRate/ns1:Low)
+                else ""
+              }
+              </ns2:txSellRate>
               <ns2:pairCurrencyCode>{fn:data($ForexRate/ns1:QuoteName)}</ns2:pairCurrencyCode>
             </ns2:Forexrate>
         }</ns2:ForexrateCollection>

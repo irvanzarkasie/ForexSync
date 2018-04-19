@@ -27,7 +27,12 @@ declare function local:func($source as element() (:: schema-element(ns1:ForexRat
               </ns2:dailyDate>
               <ns2:pointValue>10</ns2:pointValue>
               <ns2:baseCurrencyCode>IDR</ns2:baseCurrencyCode>
-              <ns2:balanceRate>{fn:number($ForexRate/ns1:Close)}</ns2:balanceRate>
+              <ns2:balanceRate>
+              {
+                if (data($ForexRate/ns1:Close) ne "") then fn:number($ForexRate/ns1:Close)
+                else ""
+              }
+              </ns2:balanceRate>
               <ns2:pairCurrencyCode>{fn:data($ForexRate/ns1:QuoteName)}</ns2:pairCurrencyCode>
             </ns2:Forexrate>
         }</ns2:ForexrateCollection>
