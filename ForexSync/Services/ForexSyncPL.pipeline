@@ -144,7 +144,7 @@
                                 <con2:disabled>true</con2:disabled>
                                 <con3:expr>
                                     <con2:xqueryTransform>
-                                        <con2:resource ref="ForexSync/Resources/ForexSyncRqToForexBalanceRateDB"/>
+                                        <con2:resource ref="ForexSync/Resources/ForexSyncRqToForexTransactionRateDB"/>
                                         <con2:param name="source">
                                             <con2:path>$XmlRq</con2:path>
                                         </con2:param>
@@ -182,6 +182,30 @@
                             <con2:xqueryText>xquWq:logMessage("ForexSync", $RqUid, "NORMAL", "Request mapping", &lt;none/>)</con2:xqueryText>
                         </con3:expr>
                     </con3:assign>
+                </con:actions>
+            </con:stage>
+            <con:stage id="_StageId-N3f57c7ff.N68162bec.0.162dbfca234.N7e02" name="Insert into DB" errorHandler="error-N3f57c7ff.N68162bec.0.162dbfca234.N7d28">
+                <con:context/>
+                <con:actions>
+                    <con4:route>
+                        <con2:id>_ActionId-N3f57c7ff.N68162bec.0.162dbfca234.N7e01</con2:id>
+                        <con4:service ref="ForexSync/Services/ForexSyncBS" xsi:type="ref:BusinessServiceRef" xmlns:ref="http://www.bea.com/wli/sb/reference"/>
+                        <con4:operation>merge</con4:operation>
+                        <con4:outboundTransform>
+                            <con3:assign varName="logMessage">
+                                <con2:id>_ActionId-N3f57c7ff.N68162bec.0.162dbfca234.N7d92</con2:id>
+                                <con3:expr>
+                                    <con2:xqueryText>xquWq:logMessage("ForexSync", $RqUid, "NORMAL", "Insert forex rate into database", &lt;none/>)</con2:xqueryText>
+                                </con3:expr>
+                            </con3:assign>
+                            <con3:routing-options>
+                                <con2:id>_ActionId-N3f57c7ff.N68162bec.0.162dbfca234.N7dc6</con2:id>
+                                <con3:mode>request</con3:mode>
+                                <con3:qualityOfService>exactly-once</con3:qualityOfService>
+                                <con3:retryCount>0</con3:retryCount>
+                            </con3:routing-options>
+                        </con4:outboundTransform>
+                    </con4:route>
                 </con:actions>
             </con:stage>
         </con:pipeline>
@@ -228,19 +252,6 @@
                 </con:actions>
             </con:stage>
         </con:pipeline>
-        <con:pipeline type="error" name="error-N3f57c7ff.N68162bec.0.162dbfca234.N7e7a">
-            <con:stage id="_StageId-N3f57c7ff.N68162bec.0.162dbfca234.N7e79" name="Database Connection Error">
-                <con:context/>
-                <con:actions>
-                    <con3:assign varName="AlertMsg">
-                        <con2:id>_ActionId-N3f57c7ff.N68162bec.0.162dbfca234.N7e0c</con2:id>
-                        <con3:expr>
-                            <con2:xqueryText>fn:concat("Forex rate synchronization failed because of database connection error. Error detail: ", fn-bea:serialize($fault))</con2:xqueryText>
-                        </con3:expr>
-                    </con3:assign>
-                </con:actions>
-            </con:stage>
-        </con:pipeline>
         <con:pipeline type="error" name="error-N3f57c7ff.N68162bec.0.162dbfca234.N7e16">
             <con:stage id="_StageId-N3f57c7ff.N68162bec.0.162dbfca234.N7e15" name="Send Alert">
                 <con:context/>
@@ -257,30 +268,24 @@
                 </con:actions>
             </con:stage>
         </con:pipeline>
+        <con:pipeline type="error" name="error-N3f57c7ff.N68162bec.0.162dbfca234.N7d28">
+            <con:stage id="_StageId-N3f57c7ff.N68162bec.0.162dbfca234.N7d27" name="Transport Error">
+                <con:context/>
+                <con:actions>
+                    <con3:assign varName="AlertMsg">
+                        <con2:id>_ActionId-N3f57c7ff.N68162bec.0.162dbfca234.N7d24</con2:id>
+                        <con3:expr>
+                            <con2:xqueryText>fn:concat("Forex rate synchronization failed because of transport error to database. Error detail: ", fn-bea:serialize($fault))</con2:xqueryText>
+                        </con3:expr>
+                    </con3:assign>
+                </con:actions>
+            </con:stage>
+        </con:pipeline>
         <con:flow>
             <con:pipeline-node name="Pipeline Pair Node1">
                 <con:request>request-N3f57c7ff.N5e25d590.0.162ce030e10.N7ffc</con:request>
                 <con:response>response-N3f57c7ff.N5e25d590.0.162ce030e10.N7ffb</con:response>
             </con:pipeline-node>
-            <con:route-node name="RouteNode1" error-handler="error-N3f57c7ff.N68162bec.0.162dbfca234.N7e7a">
-                <con:context/>
-                <con:actions>
-                    <con1:route>
-                        <con2:id>_ActionId-N3f57c7ff.N68162bec.0.162dbfca234.N7f47</con2:id>
-                        <con1:service ref="ForexSync/Services/ForexSyncBS" xsi:type="ref:BusinessServiceRef" xmlns:ref="http://www.bea.com/wli/sb/reference"/>
-                        <con1:operation>merge</con1:operation>
-                        <con1:outboundTransform>
-                            <con3:assign varName="logMessage">
-                                <con2:id>_ActionId-N3f57c7ff.N68162bec.0.162dbfca234.N7e7b</con2:id>
-                                <con3:expr>
-                                    <con2:xqueryText>xquWq:logMessage("ForexSync", $RqUid, "NORMAL", "Insert forex rate into database", &lt;none/>)</con2:xqueryText>
-                                </con3:expr>
-                            </con3:assign>
-                        </con1:outboundTransform>
-                        <con1:responseTransform/>
-                    </con1:route>
-                </con:actions>
-            </con:route-node>
         </con:flow>
     </con:router>
 </con:pipelineEntry>
