@@ -22,7 +22,7 @@
             <ftp:inbound-properties>
                 <ftp:recursive-scan>false</ftp:recursive-scan>
                 <ftp:passByReference>false</ftp:passByReference>
-                <ftp:directStreaming>false</ftp:directStreaming>
+                <ftp:directStreaming>true</ftp:directStreaming>
                 <ftp:pollerTargetManagedServer/>
                 <ftp:download-directory>
                     <env:value>C:\Oracle\Middleware\Oracle_Home12c_fmw_12213\user_projects\domains\bi_dev2\ftp\download</env:value>

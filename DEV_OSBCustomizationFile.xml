@@ -114,15 +114,15 @@
             </xt:replace>
             <xt:replace>
                 <xt:envValueType>FTP Archive Directory</xt:envValueType>
-                <xt:value xsi:type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema">/home/weblogic/forexsync</xt:value>
+                <xt:value xsi:type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema">/home/weblogic/forexsync/archive</xt:value>
             </xt:replace>
             <xt:replace>
                 <xt:envValueType>FTP Download Directory</xt:envValueType>
-                <xt:value xsi:type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema">/home/weblogic/forexsync</xt:value>
+                <xt:value xsi:type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema">/home/weblogic/forexsync/download</xt:value>
             </xt:replace>
             <xt:replace>
                 <xt:envValueType>FTP Error Directory</xt:envValueType>
-                <xt:value xsi:type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema">/home/weblogic/forexsync</xt:value>
+                <xt:value xsi:type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema">/home/weblogic/forexsync/error</xt:value>
             </xt:replace>
             <xt:replace>
                 <xt:envValueType>Managed Server for Polling</xt:envValueType>
