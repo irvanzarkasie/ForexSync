@@ -18,11 +18,11 @@ declare function local:func($source as element() (:: schema-element(ns1:ForexRat
               <ns2:currencyCode>{fn:data($ForexRate/ns1:QuoteName)}</ns2:currencyCode>
               <ns2:dailyDate>
                 {
-                  xs:date(fn:concat(
+                  fn:concat(
                     fn:substring($ForexRate/ns1:Date, 1, 4),"-",
                     fn:substring($ForexRate/ns1:Date, 5, 2),"-",
-                    fn:substring($ForexRate/ns1:Date, 7, 2)
-                  ))
+                    fn:substring($ForexRate/ns1:Date, 7, fn:string-length($ForexRate/ns1:Date) - 7)
+                  )
                 }
               </ns2:dailyDate>
               <ns2:pointValue>10</ns2:pointValue>
