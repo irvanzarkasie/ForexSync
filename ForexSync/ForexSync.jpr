@@ -184,6 +184,7 @@
    <hash n="oracle.sb.tooling.ide.core.projects.SbProjectSettings">
       <hash n="sbContentSet">
          <list n="pattern-filters">
+            <string v="-Services/ForexSyncAlert.alert"/>
             <string v="-.data"/>
             <string v="-.settings"/>
             <string v="+**"/>

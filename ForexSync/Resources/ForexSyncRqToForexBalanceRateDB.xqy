@@ -16,7 +16,15 @@ declare function local:func($source as element() (:: schema-element(ns1:ForexRat
             return 
             <ns2:Forexrate>
               <ns2:currencyCode>{fn:data($ForexRate/ns1:QuoteName)}</ns2:currencyCode>
-              <ns2:dailyDate>{fn:data($ForexRate/ns1:Date)}</ns2:dailyDate>
+              <ns2:dailyDate>
+                {
+                  fn:concat(
+                    fn:substring($ForexRate/ns1:Date, 1, 4),"-",
+                    fn:substring($ForexRate/ns1:Date, 5, 2),"-",
+                    fn:substring($ForexRate/ns1:Date, 7, 2)
+                  )
+                }
+              </ns2:dailyDate>
               <ns2:pointValue>10</ns2:pointValue>
               <ns2:baseCurrencyCode>IDR</ns2:baseCurrencyCode>
               <ns2:balanceRate>{fn:number($ForexRate/ns1:Close)}</ns2:balanceRate>

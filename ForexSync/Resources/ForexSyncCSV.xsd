@@ -1,7 +1,6 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
 <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:nxsd="http://xmlns.oracle.com/pcbpel/nxsd" xmlns:tns="http://TargetNamespace.com/ForexSync" targetNamespace="http://TargetNamespace.com/ForexSync" elementFormDefault="qualified" attributeFormDefault="unqualified" nxsd:version="NXSD" nxsd:stream="chars" nxsd:encoding="US-ASCII" nxsd:hasHeader="true" nxsd:headerLines="1" nxsd:headerLinesTerminatedBy="${eol}">
-
-
+  
   <xsd:element name="ForexRateList">
     <xsd:complexType>
       <xsd:sequence>
