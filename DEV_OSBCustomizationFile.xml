@@ -4,6 +4,49 @@
         <cus:description/>
         <cus:owners>
             <xt:owner>
+                <xt:type>AlertDestination</xt:type>
+                <xt:path>ForexSync/Resources/ForexSyncEmailAlert</xt:path>
+            </xt:owner>
+        </cus:owners>
+        <cus:actions>
+            <xt:replace>
+                <xt:envValueType>Alert SNMP Trap</xt:envValueType>
+                <xt:value xsi:type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema">true</xt:value>
+            </xt:replace>
+            <xt:replace>
+                <xt:envValueType>Alert To Log</xt:envValueType>
+                <xt:value xsi:type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema">true</xt:value>
+            </xt:replace>
+            <xt:replace>
+                <xt:envValueType>Alert To Reporting Data</xt:envValueType>
+                <xt:value xsi:type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema">true</xt:value>
+            </xt:replace>
+            <xt:replace>
+                <xt:envValueType>Email Destination URI</xt:envValueType>
+                <xt:location>0</xt:location>
+                <xt:value xsi:type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema">mailto:bi.soa@infracom-tech.com</xt:value>
+            </xt:replace>
+            <xt:replace>
+                <xt:envValueType>Email Alert Destination List</xt:envValueType>
+                <xt:value xsi:type="ema:EmailDestinationListType" xmlns:ema="http://www.bea.com/wli/monitoring/alert/action/email">
+                    <ema:email-destination-entry>
+                        <ema:mail-recipients>mailto:bi.soa@infracom-tech.com</ema:mail-recipients>
+                        <ema:smtp-resource ref="System/SMTP Servers/SMTPServer" xmlns:ema1="http://www.bea.com/wli/sb/transports/email" xmlns:tran="http://www.bea.com/wli/sb/transports" xmlns:aler="http://www.bea.com/wli/monitoring/alert" xmlns:env="http://www.bea.com/wli/config/env"/>
+                        <ema:from-address>soa@bi.go.id</ema:from-address>
+                        <ema:from-name>SOA</ema:from-name>
+                        <ema:reply-to-address/>
+                        <ema:reply-to-name/>
+                        <ema:connection-timeout>0</ema:connection-timeout>
+                        <ema:request-encoding>iso-8859-1</ema:request-encoding>
+                    </ema:email-destination-entry>
+                </xt:value>
+            </xt:replace>
+        </cus:actions>
+    </cus:customization>
+	<cus:customization xsi:type="cus:EnvValueActionsCustomizationType">
+        <cus:description/>
+        <cus:owners>
+            <xt:owner>
                 <xt:type>BusinessService</xt:type>
                 <xt:path>ForexSync/Services/ForexSyncBS</xt:path>
             </xt:owner>
@@ -59,14 +102,23 @@
     <cus:customization xsi:type="cus:FindAndReplaceCustomizationType">
         <cus:description/>
         <cus:query>
+			<xt:resourceTypes>AlertDestination</xt:resourceTypes>
             <xt:resourceTypes>BusinessService</xt:resourceTypes>
             <xt:resourceTypes>ProxyService</xt:resourceTypes>
+			<xt:envValueTypes>Alert SNMP Trap</xt:envValueTypes>
+            <xt:envValueTypes>Alert To Log</xt:envValueTypes>
+            <xt:envValueTypes>Alert To Reporting Data</xt:envValueTypes>
+			<xt:envValueTypes>Email Destination URI</xt:envValueTypes>
             <xt:envValueTypes>FTP Archive Directory</xt:envValueTypes>
             <xt:envValueTypes>FTP Download Directory</xt:envValueTypes>
             <xt:envValueTypes>FTP Error Directory</xt:envValueTypes>
 			<xt:envValueTypes>Managed Server for Polling</xt:envValueTypes>
             <xt:envValueTypes>Service URI</xt:envValueTypes>
             <xt:envValueTypes>UDDI Auto Publish</xt:envValueTypes>
+			<xt:refsToSearch xsi:type="xt:ResourceRefType">
+                <xt:type>AlertDestination</xt:type>
+                <xt:path>ForexSync/Resources/ForexSyncEmailAlert</xt:path>
+            </xt:refsToSearch>
             <xt:refsToSearch xsi:type="xt:ResourceRefType">
                 <xt:type>BusinessService</xt:type>
                 <xt:path>ForexSync/Services/ForexSyncBS</xt:path>
@@ -83,6 +135,10 @@
     </cus:customization>
     <cus:customization xsi:type="cus:ReferenceCustomizationType">
         <cus:description/>
+		<cus:refsToBeConsidered xsi:type="xt:ResourceRefType">
+            <xt:type>AlertDestination</xt:type>
+            <xt:path>ForexSync/Resources/ForexSyncEmailAlert</xt:path>
+        </cus:refsToBeConsidered>
         <cus:refsToBeConsidered xsi:type="xt:ResourceRefType">
             <xt:type>WSDL</xt:type>
             <xt:path>ForexSync/Resources/ForexSyncBS</xt:path>
@@ -209,6 +265,16 @@
             <xt:newRef>
                 <xt:type>Pipeline</xt:type>
                 <xt:path>ForexSync/Services/ForexSyncPL</xt:path>
+            </xt:newRef>
+        </cus:externalReferenceMap>
+		<cus:externalReferenceMap>
+            <xt:oldRef>
+                <xt:type>SMTPServer</xt:type>
+                <xt:path>System/SMTP Servers/SMTPServer</xt:path>
+            </xt:oldRef>
+            <xt:newRef>
+                <xt:type>SMTPServer</xt:type>
+                <xt:path>System/SMTP Servers/SMTPServer</xt:path>
             </xt:newRef>
         </cus:externalReferenceMap>
     </cus:customization>
