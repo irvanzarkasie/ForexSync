@@ -153,7 +153,7 @@
                             </con3:assign>
                             <con3:Error>
                                 <con2:id>_ActionId-N3f57c7ff.5427997e.0.162d7dc7a2e.N7f52</con2:id>
-                                <con3:errCode>ESB-000000</con3:errCode>
+                                <con3:errCode>ESB-00000</con3:errCode>
                                 <con3:message>Invalid file</con3:message>
                             </con3:Error>
                         </con3:default>
@@ -222,7 +222,7 @@
                     <con3:assign varName="AlertMsg">
                         <con2:id>_ActionId-N3f57c7ff.N68162bec.0.162dbfca234.N7e0f</con2:id>
                         <con3:expr>
-                            <con2:xqueryText>fn:concat("Forex rate synchronization failed because of invalid file content. Caused by: ", $fault)</con2:xqueryText>
+                            <con2:xqueryText>fn:concat("Forex rate synchronization failed because of invalid file content. Error detail: ", fn-bea:serialize($fault))</con2:xqueryText>
                         </con3:expr>
                     </con3:assign>
                 </con:actions>
@@ -235,7 +235,7 @@
                     <con3:assign varName="AlertMsg">
                         <con2:id>_ActionId-N3f57c7ff.N68162bec.0.162dbfca234.N7e0c</con2:id>
                         <con3:expr>
-                            <con2:xqueryText>fn:concat("Forex rate synchronization failed because of database connection error. Caused by: ", $fault)</con2:xqueryText>
+                            <con2:xqueryText>fn:concat("Forex rate synchronization failed because of database connection error. Error detail: ", fn-bea:serialize($fault))</con2:xqueryText>
                         </con3:expr>
                     </con3:assign>
                 </con:actions>
