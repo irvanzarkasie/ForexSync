@@ -9,7 +9,8 @@
             </xt:owner>
         </cus:owners>
         <cus:actions>
-            <xt:replace>
+            <!--
+			<xt:replace>
                 <xt:envValueType>Alert SNMP Trap</xt:envValueType>
                 <xt:value xsi:type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema">true</xt:value>
             </xt:replace>
@@ -21,6 +22,7 @@
                 <xt:envValueType>Alert To Reporting Data</xt:envValueType>
                 <xt:value xsi:type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema">true</xt:value>
             </xt:replace>
+			-->
             <xt:replace>
                 <xt:envValueType>Email Destination URI</xt:envValueType>
                 <xt:location>0</xt:location>
@@ -52,14 +54,6 @@
             </xt:owner>
         </cus:owners>
         <cus:actions>
-            <xt:replace>
-                <xt:envValueType>Service Operational Settings</xt:envValueType>
-                <xt:value>
-                    <ops:operations enabled="true" xmlns:ser="http://xmlns.oracle.com/servicebus/business/config" xmlns:svc="http://www.bea.com/wli/sb/services" xmlns:ops="http://xmlns.oracle.com/servicebus/business/operations" xmlns:jca="http://www.bea.com/wli/sb/transports/jca" xmlns:env="http://www.bea.com/wli/config/env" xmlns:tran="http://www.bea.com/wli/sb/transports">
-                        <ops:sla-alerting enabled="true"/>
-                    </ops:operations>
-                </xt:value>
-            </xt:replace>
             <!--
 			<xt:replace>
                 <xt:envValueType>Service URI Weight</xt:envValueType>
@@ -155,15 +149,6 @@
             </xt:owner>
         </cus:owners>
         <cus:actions>
-            <xt:replace>
-                <xt:envValueType>Service Operational Settings</xt:envValueType>
-                <xt:value>
-                    <oper:operations enabled="true" xmlns:ser="http://www.bea.com/wli/sb/services" xmlns:con="http://xmlns.oracle.com/servicebus/business/config" xmlns:http="http://www.bea.com/wli/sb/transports/http" xmlns:oper="http://xmlns.oracle.com/servicebus/business/operations" xmlns:env="http://www.bea.com/wli/config/env" xmlns:tran="http://www.bea.com/wli/sb/transports">
-                        <oper:throttling enabled="false"/>
-                        <oper:resultCachingEnabled>true</oper:resultCachingEnabled>
-                    </oper:operations>
-                </xt:value>
-            </xt:replace>
             <!--
 			<xt:replace>
                 <xt:envValueType>Service URI Weight</xt:envValueType>
@@ -215,9 +200,9 @@
             <xt:resourceTypes>AlertDestination</xt:resourceTypes>
             <xt:resourceTypes>BusinessService</xt:resourceTypes>
             <xt:resourceTypes>ProxyService</xt:resourceTypes>
-            <xt:envValueTypes>Alert SNMP Trap</xt:envValueTypes>
-            <xt:envValueTypes>Alert To Log</xt:envValueTypes>
-            <xt:envValueTypes>Alert To Reporting Data</xt:envValueTypes>
+            <!-- <xt:envValueTypes>Alert SNMP Trap</xt:envValueTypes> -->
+            <!-- <xt:envValueTypes>Alert To Log</xt:envValueTypes> -->
+            <!-- <xt:envValueTypes>Alert To Reporting Data</xt:envValueTypes> -->
             <!-- <xt:envValueTypes>Connection Timeout for HTTP Outbound Transport Provider</xt:envValueTypes> -->
             <xt:envValueTypes>Email Destination URI</xt:envValueTypes>
             <xt:envValueTypes>FTP Archive Directory</xt:envValueTypes>
