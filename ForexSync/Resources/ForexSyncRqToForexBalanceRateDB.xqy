@@ -21,7 +21,7 @@ declare function local:func($source as element() (:: schema-element(ns1:ForexRat
                   fn:concat(
                     fn:substring($ForexRate/ns1:Date, 1, 4),"-",
                     fn:substring($ForexRate/ns1:Date, 5, 2),"-",
-                    fn:substring($ForexRate/ns1:Date, 7, 2)
+                    fn:substring($ForexRate/ns1:Date, 7, fn:string-length($ForexRate/ns1:Date) - 6)
                   )
                 }
               </ns2:dailyDate>
