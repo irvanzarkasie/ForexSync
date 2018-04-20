@@ -1,7 +1,6 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
-<xs:schema targetNamespace="http://xmlns.oracle.com/pcbpel/adapter/db/top/ForexSyncBS" xmlns="http://xmlns.oracle.com/pcbpel/adapter/db/top/ForexSyncBS" elementFormDefault="qualified" attributeFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<xs:schema targetNamespace="http://xmlns.oracle.com/pcbpel/adapter/db/top/ForexSync_DEV" xmlns="http://xmlns.oracle.com/pcbpel/adapter/db/top/ForexSync_DEV" elementFormDefault="qualified" attributeFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
    <xs:element name="ForexrateCollection" type="ForexrateCollection"/>
-   <xs:element name="Forexrate" type="Forexrate"/>
    <xs:complexType name="ForexrateCollection">
       <xs:sequence>
          <xs:element name="Forexrate" type="Forexrate" minOccurs="0" maxOccurs="unbounded"/>
@@ -10,7 +9,7 @@
    <xs:complexType name="Forexrate">
       <xs:sequence>
          <xs:element name="currencyCode" type="string3"/>
-         <xs:element name="dailyDate" type="string8"/>
+         <xs:element name="dailyDate" type="string10"/>
          <xs:element name="pointValue" type="xs:decimal" minOccurs="0" nillable="true"/>
          <xs:element name="baseCurrencyCode" type="string3" minOccurs="0" nillable="true"/>
          <xs:element name="txBuyRate" type="xs:decimal" minOccurs="0" nillable="true"/>
@@ -28,21 +27,14 @@
          <xs:element name="specialSellRate" type="xs:decimal" minOccurs="0" nillable="true"/>
       </xs:sequence>
    </xs:complexType>
-   <xs:element name="ForexSyncBSSelect_curDate_curCodeInputParameters" type="ForexSyncBSSelect_curDate_curCode"/>
-   <xs:complexType name="ForexSyncBSSelect_curDate_curCode">
-      <xs:sequence>
-         <xs:element name="curDate" type="xs:string" minOccurs="1" maxOccurs="1"/>
-         <xs:element name="curCode" type="xs:string" minOccurs="1" maxOccurs="1"/>
-      </xs:sequence>
-   </xs:complexType>
    <xs:simpleType name="string3">
       <xs:restriction base="xs:string">
          <xs:maxLength value="3"/>
       </xs:restriction>
    </xs:simpleType>
-   <xs:simpleType name="string8">
+   <xs:simpleType name="string10">
       <xs:restriction base="xs:string">
-         <xs:maxLength value="8"/>
+         <xs:maxLength value="10"/>
       </xs:restriction>
    </xs:simpleType>
 </xs:schema>
