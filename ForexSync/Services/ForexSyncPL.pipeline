@@ -13,12 +13,6 @@
             <con:stage id="_StageId-N3f57c7ff.N5e25d590.0.162ce030e10.N7ffa" name="Init">
                 <con:context/>
                 <con:actions>
-                    <con3:assign varName="AlertMsg">
-                        <con2:id>_ActionId-N3f57c7ff.N68162bec.0.162dbfca234.N7e06</con2:id>
-                        <con3:expr>
-                            <con2:xqueryText>"Forex rate synchronization failed because of internal service error"</con2:xqueryText>
-                        </con3:expr>
-                    </con3:assign>
                     <con3:assign varName="RqUid">
                         <con2:id>_ActionId-N3f57c7ff.6b4f737f.0.162d259f47d.N7ffb</con2:id>
                         <con3:expr>
@@ -31,6 +25,16 @@
                             <con2:xqueryText>fn:tokenize($inbound/ctx:transport/ctx:request/tp:headers/ftp:fileName/text(), "/")[last()]</con2:xqueryText>
                         </con3:expr>
                     </con3:assign>
+                    <con3:assign varName="AlertMsg">
+                        <con2:id>_ActionId-N3f57c7ff.N68162bec.0.162dbfca234.N7e06</con2:id>
+                        <con3:expr>
+                            <con2:xqueryText>fn:concat(
+  "Forex rate synchronization failed because of unexpected internal service error. Please check service log for more detail information. \n",
+  "RqUID: ", $RqUid, " \n",
+  "Filename: ", $FileName, " \n"
+)</con2:xqueryText>
+                        </con3:expr>
+                    </con3:assign>
                     <con3:assign varName="logMessage">
                         <con2:id>_ActionId-N3f57c7ff.6b4f737f.0.162d259f47d.N7ffe</con2:id>
                         <con3:expr>
@@ -40,6 +44,18 @@
                 </con:actions>
             </con:stage>
             <con:stage id="_StageId-N3f57c7ff.22a62d0a.0.162d2d1b29d.N8000" name="Convert CSV to XML">
+                <con:context/>
+                <con:disabled>true</con:disabled>
+                <con:actions>
+                    <con3:assign varName="logMessage">
+                        <con2:id>_ActionId-N3f57c7ff.22a62d0a.0.162d2d1b29d.N7ffa</con2:id>
+                        <con3:expr>
+                            <con2:xqueryText>xquWq:logMessage("ForexSync", $RqUid, "NORMAL", "Convert CSV request to XML", &lt;none/>)</con2:xqueryText>
+                        </con3:expr>
+                    </con3:assign>
+                </con:actions>
+            </con:stage>
+            <con:stage id="_StageId-N3f57c7ff.22a62d0a.0.162d2d1b29d.N7fc8" name="Request Mapping" errorHandler="error-N3f57c7ff.N68162bec.0.162dbfca234.N7ffc">
                 <con:context/>
                 <con:actions>
                     <con3:nxsdTranslation>
@@ -53,17 +69,6 @@
                         <con3:assign-variable>XmlRq</con3:assign-variable>
                         <con3:enforceSchemaOrder>true</con3:enforceSchemaOrder>
                     </con3:nxsdTranslation>
-                    <con3:assign varName="logMessage">
-                        <con2:id>_ActionId-N3f57c7ff.22a62d0a.0.162d2d1b29d.N7ffa</con2:id>
-                        <con3:expr>
-                            <con2:xqueryText>xquWq:logMessage("ForexSync", $RqUid, "NORMAL", "Convert CSV request to XML", &lt;none/>)</con2:xqueryText>
-                        </con3:expr>
-                    </con3:assign>
-                </con:actions>
-            </con:stage>
-            <con:stage id="_StageId-N3f57c7ff.22a62d0a.0.162d2d1b29d.N7fc8" name="Request Mapping" errorHandler="error-N3f57c7ff.N68162bec.0.162dbfca234.N7ffc">
-                <con:context/>
-                <con:actions>
                     <con3:ifThenElse>
                         <con2:id>_ActionId-N3f57c7ff.5427997e.0.162d7dc7a2e.N7ff7</con2:id>
                         <con3:case id="_BranchId-N3f57c7ff.5427997e.0.162d7dc7a2e.N7ff6">
@@ -246,7 +251,12 @@
                     <con3:assign varName="AlertMsg">
                         <con2:id>_ActionId-N3f57c7ff.N68162bec.0.162dbfca234.N7e0f</con2:id>
                         <con3:expr>
-                            <con2:xqueryText>fn:concat("Forex rate synchronization failed because of invalid file content. Error detail: ", fn-bea:serialize($fault))</con2:xqueryText>
+                            <con2:xqueryText>fn:concat(
+  "Forex rate synchronization failed because of invalid file content. \n",
+  "RqUID: ", $RqUid, " \n",
+  "Filename: ", $FileName, " \n",
+  "Error detail: ", fn-bea:serialize($fault)
+)</con2:xqueryText>
                         </con3:expr>
                     </con3:assign>
                 </con:actions>
@@ -275,7 +285,12 @@
                     <con3:assign varName="AlertMsg">
                         <con2:id>_ActionId-N3f57c7ff.N68162bec.0.162dbfca234.N7d24</con2:id>
                         <con3:expr>
-                            <con2:xqueryText>fn:concat("Forex rate synchronization failed because of transport error to database. Error detail: ", fn-bea:serialize($fault))</con2:xqueryText>
+                            <con2:xqueryText>fn:concat(
+  "Forex rate synchronization failed because of transport error to database. \n",
+  "RqUID: ", $RqUid, " \n",
+  "Filename: ", $FileName, " \n",
+  "Error detail: ", fn-bea:serialize($fault)
+)</con2:xqueryText>
                         </con3:expr>
                     </con3:assign>
                 </con:actions>
