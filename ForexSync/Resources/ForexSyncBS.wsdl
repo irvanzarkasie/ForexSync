@@ -30,6 +30,12 @@
         <wsdl:operation name="merge">
             <wsdl:input message="tns:ForexrateCollection_msg"/>
         </wsdl:operation>
+        <wsdl:operation name="insert">
+            <wsdl:input message="tns:ForexrateCollection_msg"/>
+        </wsdl:operation>
+        <wsdl:operation name="update">
+            <wsdl:input message="tns:ForexrateCollection_msg"/>
+        </wsdl:operation>
         <wsdl:operation name="delete">
             <wsdl:input message="tns:ForexrateCollection_msg"/>
         </wsdl:operation>
