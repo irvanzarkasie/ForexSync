@@ -186,7 +186,7 @@
                     </con3:replace>
                     <con3:validate>
                         <con2:id>_ActionId-N3f57c7ff.N68162bec.0.162dbfca234.N7ffe</con2:id>
-                        <con3:schema ref="ForexSync/Resources/ForexSyncBS_table"/>
+                        <con3:schema ref="ForexSync/Resources/ForexSyncSchema"/>
                         <con3:schemaElement xmlns:for="http://xmlns.oracle.com/pcbpel/adapter/db/top/ForexSyncBS">for:ForexrateCollection</con3:schemaElement>
                         <con3:varName>body</con3:varName>
                         <con3:location>
