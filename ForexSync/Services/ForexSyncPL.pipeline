@@ -29,9 +29,9 @@
                         <con2:id>_ActionId-N3f57c7ff.N68162bec.0.162dbfca234.N7e06</con2:id>
                         <con3:expr>
                             <con2:xqueryText>fn:concat(
-  "Forex rate synchronization failed because of unexpected internal service error. Please check service log for more detail information. \n",
-  "RqUID: ", $RqUid, " \n",
-  "Filename: ", $FileName, " \n"
+  "Forex rate synchronization failed because of unexpected internal service error. Please check service log for more detail information. \n ",
+  "RqUID: ", $RqUid, " \n ",
+  "Filename: ", $FileName, " \n "
 )</con2:xqueryText>
                         </con3:expr>
                     </con3:assign>
@@ -252,9 +252,9 @@
                         <con2:id>_ActionId-N3f57c7ff.N68162bec.0.162dbfca234.N7e0f</con2:id>
                         <con3:expr>
                             <con2:xqueryText>fn:concat(
-  "Forex rate synchronization failed because of invalid file content. \n",
-  "RqUID: ", $RqUid, " \n",
-  "Filename: ", $FileName, " \n",
+  "Forex rate synchronization failed because of invalid file content. \n ",
+  "RqUID: ", $RqUid, " \n ",
+  "Filename: ", $FileName, " \n ",
   "Error detail: ", fn-bea:serialize($fault)
 )</con2:xqueryText>
                         </con3:expr>
@@ -286,9 +286,9 @@
                         <con2:id>_ActionId-N3f57c7ff.N68162bec.0.162dbfca234.N7d24</con2:id>
                         <con3:expr>
                             <con2:xqueryText>fn:concat(
-  "Forex rate synchronization failed because of transport error to database. \n",
-  "RqUID: ", $RqUid, " \n",
-  "Filename: ", $FileName, " \n",
+  "Forex rate synchronization failed because of transport error to database. \n ",
+  "RqUID: ", $RqUid, " \n ",
+  "Filename: ", $FileName, " \n ",
   "Error detail: ", fn-bea:serialize($fault)
 )</con2:xqueryText>
                         </con3:expr>
