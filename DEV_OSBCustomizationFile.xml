@@ -50,7 +50,7 @@
         <cus:owners>
             <xt:owner>
                 <xt:type>BusinessService</xt:type>
-                <xt:path>ForexSync/Services/ForexSyncBS</xt:path>
+                <xt:path>ForexSync/Services/ForexSyncBS_LOCAL</xt:path>
             </xt:owner>
         </cus:owners>
         <cus:actions>
@@ -225,7 +225,7 @@
             </xt:refsToSearch>
             <xt:refsToSearch xsi:type="xt:ResourceRefType">
                 <xt:type>BusinessService</xt:type>
-                <xt:path>ForexSync/Services/ForexSyncBS</xt:path>
+                <xt:path>ForexSync/Services/ForexSyncBS_LOCAL</xt:path>
             </xt:refsToSearch>
             <xt:refsToSearch xsi:type="xt:ResourceRefType">
                 <xt:type>ProxyService</xt:type>
@@ -281,7 +281,7 @@
         </cus:refsToBeConsidered>
         <cus:refsToBeConsidered xsi:type="xt:ResourceRefType">
             <xt:type>BusinessService</xt:type>
-            <xt:path>ForexSync/Services/ForexSyncBS</xt:path>
+            <xt:path>ForexSync/Services/ForexSyncBS_LOCAL</xt:path>
         </cus:refsToBeConsidered>
         <cus:refsToBeConsidered xsi:type="xt:ResourceRefType">
             <xt:type>Pipeline</xt:type>
@@ -414,11 +414,11 @@
         <cus:externalReferenceMap>
             <xt:oldRef>
                 <xt:type>BusinessService</xt:type>
-                <xt:path>ForexSync/Services/ForexSyncBS</xt:path>
+                <xt:path>ForexSync/Services/ForexSyncBS_LOCAL</xt:path>
             </xt:oldRef>
             <xt:newRef>
                 <xt:type>BusinessService</xt:type>
-                <xt:path>ForexSync/Services/ForexSyncBS</xt:path>
+                <xt:path>ForexSync/Services/ForexSyncBS_LOCAL</xt:path>
             </xt:newRef>
         </cus:externalReferenceMap>
         <cus:externalReferenceMap>
