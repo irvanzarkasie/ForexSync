@@ -22,7 +22,7 @@
             <ftp:inbound-properties>
                 <ftp:recursive-scan>false</ftp:recursive-scan>
                 <ftp:passByReference>false</ftp:passByReference>
-                <ftp:directStreaming>true</ftp:directStreaming>
+                <ftp:directStreaming>false</ftp:directStreaming>
                 <ftp:pollerTargetManagedServer/>
                 <ftp:download-directory>
                     <env:value>C:\Oracle\Middleware\Oracle_Home12c_fmw_12213\user_projects\domains\bi_dev2\ftp\download</env:value>
@@ -41,7 +41,7 @@
                 <ftp:retry-count>3</ftp:retry-count>
                 <ftp:file-mask>*.csv</ftp:file-mask>
                 <ftp:poll-info>
-                    <ftp:interval-milliseconds>120000</ftp:interval-milliseconds>
+                    <ftp:interval-milliseconds>5000</ftp:interval-milliseconds>
                 </ftp:poll-info>
                 <ftp:read-limit>0</ftp:read-limit>
                 <ftp:sortByArrival>false</ftp:sortByArrival>
