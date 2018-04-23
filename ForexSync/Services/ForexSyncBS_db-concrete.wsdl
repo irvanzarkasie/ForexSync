@@ -1,4 +1,4 @@
-<wsdl:definitions targetNamespace="http://xmlns.oracle.com/pcbpel/adapter/db/ForexSync/ForexSync/ForexSyncBS" name="ForexSyncBS-concrete" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+<wsdl:definitions targetNamespace="http://xmlns.oracle.com/pcbpel/adapter/db/ForexSync/ForexSync/ForexSyncBS" name="ForexSyncBS_db-concrete" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
     <wsdl:import location="../Resources/ForexSyncBS.wsdl" namespace="http://xmlns.oracle.com/pcbpel/adapter/db/ForexSync/ForexSync/ForexSyncBS"/>
     <wsdl:binding name="ForexSyncBS_ptt-binding" type="for:ForexSyncBS_ptt" xmlns:for="http://xmlns.oracle.com/pcbpel/adapter/db/ForexSync/ForexSync/ForexSyncBS">
         <soap:binding style="document" transport="http://www.bea.com/wli/sb/transports/jca"/>
