@@ -5,7 +5,7 @@ xquery version "1.0" encoding "utf-8";
 declare namespace ns1="http://TargetNamespace.com/ForexSync";
 (:: import schema at "ForexSyncCSV.xsd" ::)
 declare namespace ns2="http://xmlns.oracle.com/pcbpel/adapter/db/top/ForexSyncBS";
-(:: import schema at "ForexSyncBS_table.xsd" ::)
+(:: import schema at "ForexSyncSchema.xsd" ::)
 
 declare variable $source as element() (:: schema-element(ns1:ForexRateList) ::) external;
 

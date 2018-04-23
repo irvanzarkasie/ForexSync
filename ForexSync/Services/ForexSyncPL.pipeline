@@ -194,7 +194,7 @@
                 <con:actions>
                     <con4:route>
                         <con2:id>_ActionId-N3f57c7ff.N68162bec.0.162dbfca234.N7e01</con2:id>
-                        <con4:service ref="ForexSync/Services/ForexSyncBS_db" xsi:type="ref:BusinessServiceRef" xmlns:ref="http://www.bea.com/wli/sb/reference"/>
+                        <con4:service ref="ForexSync/Services/ForexSyncDB" xsi:type="ref:BusinessServiceRef" xmlns:ref="http://www.bea.com/wli/sb/reference"/>
                         <con4:operation>merge</con4:operation>
                         <con4:outboundTransform>
                             <con3:assign varName="logMessage">

@@ -1,0 +1,12 @@
+<wsdl:definitions targetNamespace="http://xmlns.oracle.com/pcbpel/adapter/db/ForexSync/ForexSync/ForexSyncDB" name="ForexSyncDB-concrete" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+    <wsdl:import location="ForexSyncDB.wsdl" namespace="http://xmlns.oracle.com/pcbpel/adapter/db/ForexSync/ForexSync/ForexSyncDB"/>
+    <wsdl:binding name="ForexSyncDB_ptt-binding" type="for:ForexSyncDB_ptt" xmlns:for="http://xmlns.oracle.com/pcbpel/adapter/db/ForexSync/ForexSync/ForexSyncDB">
+        <soap:binding style="document" transport="http://www.bea.com/wli/sb/transports/jca"/>
+        <wsdl:operation name="merge">
+            <soap:operation soapAction="merge"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+        </wsdl:operation>
+    </wsdl:binding>
+</wsdl:definitions>
