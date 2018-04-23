@@ -218,10 +218,6 @@
             <xt:path>ForexSync/Resources/ForexSyncRqToForexTransactionRateDB</xt:path>
         </cus:refsToBeConsidered>
         <cus:refsToBeConsidered xsi:type="xt:ResourceRefType">
-            <xt:type>BusinessService</xt:type>
-            <xt:path>ForexSync/Services/ForexSyncBS</xt:path>
-        </cus:refsToBeConsidered>
-        <cus:refsToBeConsidered xsi:type="xt:ResourceRefType">
             <xt:type>Pipeline</xt:type>
             <xt:path>ForexSync/Services/ForexSyncPL</xt:path>
         </cus:refsToBeConsidered>
